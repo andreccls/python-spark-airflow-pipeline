@@ -5,5 +5,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      # the container runs as uid 50000 (airflow); let it write caches and .coverage into the checkout
+      - run: chmod -R a+rwX .
       - run: make lint
       - run: make coverage
