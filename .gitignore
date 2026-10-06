@@ -1,0 +1,14 @@
+# generated data lake (raw/bronze/silver/gold/quarantine) — recreated by the pipeline
+data/*
+!data/.gitkeep
+.env
+coverage/
+.coverage
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+__pycache__/
+*.pyc
+.venv/
+spark-warehouse/
+metastore_db/

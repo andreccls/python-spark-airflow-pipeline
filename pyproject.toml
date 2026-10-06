@@ -1,0 +1,35 @@
+[project]
+name = "python-spark-airflow-pipeline"
+version = "0.1.0"
+description = "Reference example: PySpark medallion pipeline orchestrated by Apache Airflow"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src", "dags"]
+addopts = "-ra"
+filterwarnings = ["ignore::DeprecationWarning"]
+
+[tool.coverage.run]
+source = ["pipeline"]
+branch = true
+omit = ["src/pipeline/__main__.py"]   # 3-line entry point: `raise SystemExit(main())`
+
+[tool.coverage.report]
+fail_under = 95
+show_missing = true
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+src = ["src", "dags", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "C4", "RUF"]
+
+[tool.mypy]
+python_version = "3.12"
+strict = true
+files = ["src/pipeline"]
+ignore_missing_imports = true
