@@ -37,7 +37,9 @@ def generate_customers(n: int, seed: int) -> list[Row]:
         for i in range(1, n + 1)
     ]
     # a later version of C0001 with a messy e-mail: silver must keep only the latest
-    rows.append({**rows[0], "email": " Customer1@Example.COM ", "updated_at": "2026-06-01T00:00:00"})
+    rows.append(
+        {**rows[0], "email": " Customer1@Example.COM ", "updated_at": "2026-06-01T00:00:00"}
+    )
     return rows
 
 

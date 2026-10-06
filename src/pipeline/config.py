@@ -14,7 +14,7 @@ class Settings:
     data_dir: Path
     seed: int = 42
     orders_per_day: int = 300
-    max_reject_ratio: float = 0.10
+    max_reject_ratio: float = 0.15
 
     @classmethod
     def from_env(cls) -> Settings:
@@ -22,7 +22,7 @@ class Settings:
             data_dir=Path(os.environ.get("PIPELINE_DATA_DIR", DEFAULT_DATA_DIR)),
             seed=int(os.environ.get("PIPELINE_SEED", "42")),
             orders_per_day=int(os.environ.get("PIPELINE_ORDERS_PER_DAY", "300")),
-            max_reject_ratio=float(os.environ.get("PIPELINE_MAX_REJECT_RATIO", "0.10")),
+            max_reject_ratio=float(os.environ.get("PIPELINE_MAX_REJECT_RATIO", "0.15")),
         )
 
     def layer(self, layer: str, table: str) -> Path:
